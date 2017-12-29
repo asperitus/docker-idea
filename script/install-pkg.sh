@@ -16,7 +16,8 @@ echo "Install additional packages ..."
 ##
 echo "Installing IntelliJ IDEA ..."
 
-idea_link="https://download.jetbrains.com/idea/ideaIC-2017.3.2.tar.gz"
+#idea_link="https://download.jetbrains.com/idea/ideaIC-2017.3.2.tar.gz"
+idea_link="https://download.jetbrains.com/idea/ideaIC-2016.3.7.tar.gz"
 wget "$idea_link" -O /tmp/idea.tar.gz --no-check-certificate --quiet --show-progress=on
 
 sudo mkdir -p /opt/idea
