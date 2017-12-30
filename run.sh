@@ -11,8 +11,12 @@ set -x
 [ -z "$http_proxy" ] && proxy="" || proxy="-e http_proxy=$http_proxy -e https_proxy=$http_proxy -e no_proxy=$no_proxy"
 
 #
+ipaddr=$(ifconfig en0 | grep inet | awk '$1=="inet" {print $2}')
+
+xhost + $ipaddr
+
 export DHNT_BASE=~/.dhnt
-export DISPLAY=192.168.56.1:0
+export DISPLAY=${ipaddr}:0
 
 volume="-v /private/tmp:/private/tmp -v ${DHNT_BASE}:/home/vcap"
 
