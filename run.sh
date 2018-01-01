@@ -16,7 +16,7 @@ printf "ifconfig \n awk \n xset \n xhost \n" | xargs -n1 -I{} sh -c 'which {} ||
     exit 1
 fi
 #
-ipaddr=$(ifconfig | grep 'inet ' | grep -e '10\.' -e '172\.' -e '192\.'| awk '{$1=$1; print}'|cut -d' ' -f2 | cut -d: -f2 | xargs -n1 -I{} sh -c 'export DISPLAY={}:0; xset q &> /dev/null && echo {} && exit 255;' 2> /dev/null)
+ipaddr=$(ifconfig | grep 'inet ' | grep -e '10\.' -e '172\.' -e '192\.'| awk '{$1=$1; print}'|cut -d' ' -f2 | cut -d: -f2 | xargs -n1 -I{} bash -c 'export DISPLAY={}:0; xset q 2>&1 > /dev/null && echo {} && exit 255;' 2> /dev/null)
 
 export DISPLAY=${ipaddr}:0
 xhost + $ipaddr
