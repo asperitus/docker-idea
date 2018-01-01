@@ -15,7 +15,8 @@ ipaddr=$(ifconfig en0 | grep inet | awk '$1=="inet" {print $2}')
 
 xhost + $ipaddr
 
-export DHNT_BASE=~/.dhnt
+#export DHNT_BASE=/c/Users/liqiang/AppData/.dhnt
+[ -z "$DHNT_BASE" ] && export DHNT_BASE=~/.dhnt
 export DISPLAY=${ipaddr}:0
 
 volume="-v /private/tmp:/private/tmp -v ${DHNT_BASE}:/home/vcap"
