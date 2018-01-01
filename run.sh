@@ -27,6 +27,6 @@ xhost + $ipaddr
 #
 volume=""
 [ -d "/private/tmp" ] && volume="$volume -v /private/tmp:/private/tmp"
-[ -d "${DHNT_BASE}" ] && volume="$volume -v ${DHNT_BASE}:/home/vcap"
+[ -d "${DHNT_BASE}" ] && volume="$volume -v ${DHNT_BASE}:/home/vcap/go"
 
 docker run $proxy $volume -e DISPLAY=${DISPLAY} -it --rm --privileged --name dhnt-idea dhnt/idea
